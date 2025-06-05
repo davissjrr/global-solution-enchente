@@ -1,0 +1,179 @@
+[
+    {
+        "id": "106dad890abc5eca",
+        "type": "tab",
+        "label": "Fluxo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1a1b1c1d1e1f1g1h",
+        "type": "serial in",
+        "z": "106dad890abc5eca",
+        "name": "COM3",
+        "serial": "12345678abcdef",
+        "x": 150,
+        "y": 340,
+        "wires": [
+            [
+                "b2b2b2b2b2b2b2b2"
+            ]
+        ]
+    },
+    {
+        "id": "b2b2b2b2b2b2b2b2",
+        "type": "json",
+        "z": "106dad890abc5eca",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 330,
+        "y": 340,
+        "wires": [
+            [
+                "c3c3c3c3c3c3c3c3",
+                "mqtt1"
+            ]
+        ]
+    },
+    {
+        "id": "c3c3c3c3c3c3c3c3",
+        "type": "switch",
+        "z": "106dad890abc5eca",
+        "name": "",
+        "property": "payload.umidade",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "40",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 550,
+        "y": 340,
+        "wires": [
+            [
+                "d4d4d4d4d4d4d4d4"
+            ]
+        ]
+    },
+    {
+        "id": "d4d4d4d4d4d4d4d4",
+        "type": "debug",
+        "z": "106dad890abc5eca",
+        "name": "Nível Crítico",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "mqtt1",
+        "type": "mqtt out",
+        "z": "106dad890abc5eca",
+        "name": "",
+        "topic": "esp32/nivel_agua/ultra",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "2faa2a79e022065c",
+        "x": 640,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "26d7df8d6a4d0a2d",
+        "type": "mqtt in",
+        "z": "106dad890abc5eca",
+        "name": "",
+        "topic": "esp32/nivel_agua",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "2faa2a79e022065c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 180,
+        "wires": [
+            [
+                "99e1586905970b4d"
+            ]
+        ]
+    },
+    {
+        "id": "99e1586905970b4d",
+        "type": "serial out",
+        "z": "106dad890abc5eca",
+        "name": "COM3",
+        "serial": "12345678abcdef",
+        "x": 570,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "12345678abcdef",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "COM3",
+        "serialbaud": "9600",
+        "databits": 8,
+        "parity": "none",
+        "stopbits": 1,
+        "waitfor": "",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "false",
+        "responsetimeout": ""
+    },
+    {
+        "id": "2faa2a79e022065c",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
