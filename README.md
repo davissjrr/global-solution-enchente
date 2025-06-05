@@ -54,6 +54,10 @@ Horario:14:41:33 Nivel:13.45 Umid:78.00 Temp:25.60
 
 ---
 
+## Link do Wokwi
+
+https://wokwi.com/projects/432865038271897601
+
 ## Autores
 
 - Henrique Celso  
